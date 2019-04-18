@@ -1,6 +1,10 @@
 const { events, Job } = require("brigadier");
-events.on("simpleevent", () => {
-  var job = new Job("hello-world", "packages.bco.cudaops.com/ccb-docker-local/transfer-engine:latest");
+events.on("simpleevent", (e, p) => {
+  var job = new Job("hello-world", "alpine:3.8"); // "packages.bco.cudaops.com/ccb-docker-local/transfer-engine:latest");
+  job.tasks = [
+    "echo Hello " + e.f,
+    "echo World"
+  ];
 
   job.run();
 });
