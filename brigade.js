@@ -1,11 +1,12 @@
 const { events, Job } = require("brigadier");
 events.on("simpleevent", (e, p) => {
-  var job = new Job("hello-world", "alpine:3.8"); // "packages.bco.cudaops.com/ccb-docker-local/transfer-engine:latest");
-  f = JSON.parse(e.payload)
-  job.tasks = [
-    "echo Hello " + f.f,
-    "echo World" + p.name
-  ];
+  var job = new Job("transfer-engine", "packages.bco.cudaops.com/ccb-docker-local/transfer-engine:latest");
+  env_vars = JSON.parse(e.payload)
+
+  job.env = {
+  	"CUDA_MANIFEST_STORE_HOSTNAME": env_vars.manifest_hostname,
+	"CUDA_DATASOURCE_HOSTNAME": env_vars.datasource_hostname
+  }
 
   job.run();
 });
