@@ -7,6 +7,7 @@ events.on("simpleevent", (e, p) => {
   	"CUDA_MANIFEST_STORE_ADDRESS": env_vars.manifest_store_address,
 	"CUDA_DATA_SOURCE_ADDRESS": env_vars.data_source_address,
 	"CUDA_MANIFEST_ID": env_vars.manifest_id,
+	"CUDA_MANIFEST_AUTH": env_vars.manifest_auth,
 	"CUDA_PATH": env_vars.path
   }
 
