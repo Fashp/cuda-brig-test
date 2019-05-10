@@ -4,8 +4,10 @@ events.on("simpleevent", (e, p) => {
   env_vars = JSON.parse(e.payload)
 
   job.env = {
-  	"CUDA_MANIFEST_STORE_HOSTNAME": env_vars.manifest_hostname,
-	"CUDA_DATASOURCE_HOSTNAME": env_vars.datasource_hostname
+  	"CUDA_MANIFEST_STORE_ADDRESS": env_vars.manifest_address,
+	"CUDA_DATASOURCE_ADDRESS": env_vars.datasource_address,
+	"CUDA_MANIFEST_ID": env_vars.manifest_id,
+	"CUDA_PATH": env_vars.path
   }
 
   job.run();
